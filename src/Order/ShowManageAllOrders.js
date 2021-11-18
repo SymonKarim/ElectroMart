@@ -39,7 +39,7 @@ const ShowManageAllOrders = () => {
   return (
     <div className="showAllOrders">
       <Container>
-        <h2 className="showAllOrders__Title">Manage Orders</h2>
+        <h2 className="showAllOrders__Title">Manage <span className="text-danger">Orders</span></h2>
         {isSpinnerActive ? (
           <MySpinner />
         ) : (

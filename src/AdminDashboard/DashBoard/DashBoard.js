@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import { Col, Container, Row } from 'react-bootstrap'
-import MySpinner from '../../shared/MySpinner/MySpinner'
-import DashBoardCard from './DashBoardCard'
+import React, { useState, useEffect } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import MySpinner from "../../shared/MySpinner/MySpinner";
+import DashBoardCard from "./DashBoardCard";
 
 const DashBoard = () => {
-  const [dashBoardData, setDashBoardData] = useState({})
-  const [isSpinnerActive, setIsSpinnerActive] = useState(true)
+  const [dashBoardData, setDashBoardData] = useState({});
+  const [isSpinnerActive, setIsSpinnerActive] = useState(true);
   const getData = async () => {
     await fetch(`https://obscure-harbor-46101.herokuapp.com/dashboard_data`)
       .then((res) => res.json())
@@ -13,8 +13,8 @@ const DashBoard = () => {
         setDashBoardData(data);
         setIsSpinnerActive(false);
       });
-  }
-  useEffect(() => getData(), [])
+  };
+  useEffect(() => getData(), []);
   return (
     <div className="py-3 mt-5">
       {isSpinnerActive ? (
@@ -40,7 +40,7 @@ const DashBoard = () => {
         </Container>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default DashBoard
+export default DashBoard;

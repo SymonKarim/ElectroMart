@@ -17,7 +17,7 @@ const MakeOrder = () => {
     displayName: user.displayName,
   });
   const getProduct = async () => {
-    await fetch(`https://obscure-harbor-46101.herokuapp.com//product/${id}`)
+    await fetch(`https://obscure-harbor-46101.herokuapp.com/product/${id}`)
       .then((res) => res.json())
       .then((data) => setOrderItemData(data));
   };

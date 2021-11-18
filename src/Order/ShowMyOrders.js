@@ -16,7 +16,8 @@ const ShowMyOrders = () => {
     await fetch(`https://obscure-harbor-46101.herokuapp.com/all_orders`)
       .then((res) => res.json())
       .then((data) => {
-        setAllOrders(data);
+        const myOrders = data.filter((order) => order.email === user.email);
+        setAllOrders(myOrders);
         setIsSpinnerActive(false);
       });
   };
@@ -32,7 +33,7 @@ const ShowMyOrders = () => {
       ).then(() => getAllOrders()));
   };
   let deliveryCharge = 100;
-  const myOrders = allOrders.filter((order) => order.email === user.email);
+ 
   return (
     <>
       <section className="showAllOrders">
@@ -58,7 +59,7 @@ const ShowMyOrders = () => {
                 </tr>
               </thead>
               <tbody>
-                {myOrders.map((order) => (
+                {allOrders.map((order) => (
                   <tr key={order._id}>
                     <td className="text-center p-2">{order.displayName}</td>
                     <td className="text-center p-2">{order.pnumber}</td>
@@ -106,7 +107,6 @@ const ShowMyOrders = () => {
         <Container className="mt-5">
           <MyOrder />
         </Container>
-       
       </section>
       <Footer />
     </>

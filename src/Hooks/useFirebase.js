@@ -10,6 +10,7 @@ import {
 import { useEffect, useState } from "react";
 import initializeFirebaseAuthentication from "../Firebase/firebase.init";
 import axios from "axios";
+import { useNavigate } from "react-router";
 initializeFirebaseAuthentication();
 const useFirebase = () => {
   const [user, setUser] = useState({});
@@ -55,13 +56,13 @@ const useFirebase = () => {
   const verifyEmail = () => {
     sendEmailVerification(auth.currentUser).then((result) => {});
   };
-
   const signInusingEmailPassword = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         setUser(result.user);
         setError("");
         isAdminUser(result.user.email);
+        
       })
       .catch((error) => {
         if ("Firebase: Error (auth/wrong-password)." === error.message)

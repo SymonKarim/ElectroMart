@@ -17,7 +17,7 @@ const AddNewProductForm = () => {
       body: JSON.stringify(newItemData),
     })
       .then((res) => res.json())
-      .then((data) => navigate("/"));
+      .then((data) => navigate("/products"));
   }
   const handleChange = (e) => {
     const target = e.target

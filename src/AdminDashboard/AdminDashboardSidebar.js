@@ -34,8 +34,8 @@ const AdminDashboardSidebar = () => {
       </ListGroup.Item>
 
       <ListGroup.Item action href="#logout">
-        <Button className="btn btn-warning w-100" onClick={handleLogOut}>
-          <i className="fas fa-sign-out-alt  text-primary"></i> Logout
+        <Button className="btn btn-danger text-white fw-bolder w-100" onClick={handleLogOut}>
+          <i className="fas fa-sign-out-alt  text-white"></i> Logout
         </Button>
       </ListGroup.Item>
     </ListGroup>
