@@ -17,7 +17,7 @@ const MakeOrder = () => {
     displayName: user.displayName,
   });
   const getProduct = async () => {
-    await fetch(`http://localhost:5000/product/${id}`)
+    await fetch(`https://obscure-harbor-46101.herokuapp.com//product/${id}`)
       .then((res) => res.json())
       .then((data) => setOrderItemData(data));
   };
@@ -36,11 +36,14 @@ const MakeOrder = () => {
       status: "Pending...",
     };
 
-    await fetch(`http://localhost:5000/create_order/${id}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    }).then(() => navigate("/my_orders"));
+    await fetch(
+      `https://obscure-harbor-46101.herokuapp.com/create_order/${id}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      }
+    ).then(() => navigate("/my_orders"));
   };
   const handleChange = (e) => {
     const target = e.target;

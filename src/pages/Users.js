@@ -4,11 +4,11 @@ const Users = () => {
   const [allUser, setAllUser] = useState([]);
 
   const loadUser =  () => {
-     fetch(`http://localhost:5000/getusers`)
-      .then((res) => res.json())
-      .then((data) => {
-        setAllUser(data);
-      });
+     fetch(`https://obscure-harbor-46101.herokuapp.com/getusers`)
+       .then((res) => res.json())
+       .then((data) => {
+         setAllUser(data);
+       });
   };
   useEffect(() => loadUser(), []);
 

@@ -10,7 +10,7 @@ import Footer from "../../shared/Footer/Footer";
 const AllProducts = () => {
   const [Products, setProducts] = useState([]);
   const getData = async () => {
-    await fetch("http://localhost:5000/all_items")
+    await fetch("https://obscure-harbor-46101.herokuapp.com/all_items")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   };

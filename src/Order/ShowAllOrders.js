@@ -8,7 +8,7 @@ const ShowAllOrders = () => {
   const [allOrders, setAllOrders] = useState([]);
   const [isSpinnerActive, setIsSpinnerActive] = useState(true);
   const getAllOrders = async () => {
-    await fetch(`http://localhost:5000/all_orders`)
+    await fetch(`https://obscure-harbor-46101.herokuapp.com/all_orders`)
       .then((res) => res.json())
       .then((data) => {
         setAllOrders(data);
@@ -19,9 +19,12 @@ const ShowAllOrders = () => {
   const deleteOrder = async (id) => {
     const per = window.confirm("Do you really want to delete?");
     per &&
-      (await fetch(`http://localhost:5000/delete_order/${id}`, {
-        method: "DELETE",
-      }).then(() => getAllOrders()));
+      (await fetch(
+        `https://obscure-harbor-46101.herokuapp.com/delete_order/${id}`,
+        {
+          method: "DELETE",
+        }
+      ).then(() => getAllOrders()));
   };
   let deliveryCharge = 100;
   return (

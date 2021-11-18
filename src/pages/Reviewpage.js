@@ -14,9 +14,13 @@ const Reviewpage = () => {
   const handleSubmitReview = (e) => {
     e.preventDefault();
    
-    axios.post("http://localhost:5000/reviews", {
-      rating, comment,  name
-    }).then(() => navigate("/"))
+    axios
+      .post("https://obscure-harbor-46101.herokuapp.com/reviews", {
+        rating,
+        comment,
+        name,
+      })
+      .then(() => navigate("/"));
   };
  
   return (

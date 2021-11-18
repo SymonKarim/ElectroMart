@@ -7,16 +7,16 @@ const DashBoard = () => {
   const [dashBoardData, setDashBoardData] = useState({})
   const [isSpinnerActive, setIsSpinnerActive] = useState(true)
   const getData = async () => {
-    await fetch(`http://localhost:5000/dashboard_data`)
+    await fetch(`https://obscure-harbor-46101.herokuapp.com/dashboard_data`)
       .then((res) => res.json())
       .then((data) => {
-        setDashBoardData(data)
-        setIsSpinnerActive(false)
-      })
+        setDashBoardData(data);
+        setIsSpinnerActive(false);
+      });
   }
   useEffect(() => getData(), [])
   return (
-    <div className="py-3">
+    <div className="py-3 mt-5">
       {isSpinnerActive ? (
         <MySpinner />
       ) : (

@@ -7,7 +7,7 @@ import Button from "./../../shared/Button/Button";
 const FeatureProduct = () => {
   const [Products, setProducts] = useState([]);
   const getData = async () => {
-    await fetch("http://localhost:5000/all_items")
+    await fetch("https://obscure-harbor-46101.herokuapp.com/all_items")
       .then((res) => res.json())
       .then((data) => setProducts(data.slice(0, 6)));
   };

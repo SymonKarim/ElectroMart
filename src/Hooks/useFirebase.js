@@ -70,7 +70,7 @@ const useFirebase = () => {
       });
   };
   const isAdminUser = (email) => {
-    fetch(`http://localhost:5000/getuser/${email}`)
+    fetch(`https://obscure-harbor-46101.herokuapp.com/getuser/${email}`)
       .then((response) => response.json())
       .then((data) => {
         data ? setAdmin(data.isAdmin) : setAdmin(false);
@@ -78,7 +78,7 @@ const useFirebase = () => {
   };
   const userMongoDb1 = () => {
     axios
-      .post("http://localhost:5000/users", {
+      .post("https://obscure-harbor-46101.herokuapp.com//users", {
         name,
         email,
         isAdmin: false,

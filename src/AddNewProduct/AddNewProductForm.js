@@ -11,13 +11,13 @@ const AddNewProductForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    await fetch('http://localhost:5000/add_new_item', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    await fetch("https://obscure-harbor-46101.herokuapp.com/add_new_item", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newItemData),
     })
       .then((res) => res.json())
-      .then((data) => navigate('/'))
+      .then((data) => navigate("/"));
   }
   const handleChange = (e) => {
     const target = e.target

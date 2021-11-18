@@ -41,7 +41,8 @@ const ShowReview = ({ reviews }) => {
     <Container>
       {/* <h2> Responsive </h2> */}
       <Slider {...settings}>
-        {reviews.map((review) => (
+        {
+          reviews.map((review) => (
           <Card style={{ width: "18rem", margin: "5px" }}>
             <Card.Body>
               <Card.Header>{review.name}</Card.Header>

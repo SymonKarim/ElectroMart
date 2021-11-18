@@ -15,7 +15,7 @@ const MakeAdmin = () => {
     e.preventDefault();
   };
   const handleUserSearch = (e) => {
-    fetch(`http://localhost:5000/getuser/${email}`)
+    fetch(`https://obscure-harbor-46101.herokuapp.com/getuser/${email}`)
       .then((response) => response.json())
       .then((data) => {
         data ? setSingleUser(data) : setAdminEror("Check email please");
@@ -24,11 +24,13 @@ const MakeAdmin = () => {
       });
   };
   const handleMakeAdmin = () => {
-    axios.put(`http://localhost:5000/makeadmin/${email}`).then(() => {
-      window.alert("Admin added succesfully");
-      setSingleUser({});
-      setBoolUser(false);
-    });
+    axios
+      .put(`https://obscure-harbor-46101.herokuapp.com/makeadmin/${email}`)
+      .then(() => {
+        window.alert("Admin added succesfully");
+        setSingleUser({});
+        setBoolUser(false);
+      });
   };
   return (
     <div>
