@@ -1,0 +1,18 @@
+.showAllOrders {
+  min-height: 100vh;  
+}
+
+.showAllOrders__Title {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 1000;
+  text-transform: uppercase;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.orderItem__Image {
+  height: 40px;
+  width: 100%;
+  object-fit: contain;
+}

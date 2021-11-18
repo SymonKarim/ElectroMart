@@ -1,0 +1,35 @@
+.orderDetails {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productImage {
+  height: 500px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.productDescription {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 10px;
+  height: 500px;
+}
+
+.placeOrderBtn {
+  padding: 10px 40px !important;
+  font-weight: 1000 !important;
+  font-size: 15px !important;
+  text-transform: uppercase;
+}
+
+
+.productDetailsTitle{
+    font-weight: 1000;
+    font-size: 50px;
+}
+.productDetailsDescription{font-size: 20px;}
+.productDetailsPrice{font-weight: 1000;font-size: 25px;}

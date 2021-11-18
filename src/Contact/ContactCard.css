@@ -1,0 +1,9 @@
+.contactCard{
+    border-radius: 10%;
+}
+
+.contactCardIcon{
+    background: white;
+    border-radius: 100%;
+    padding: 30px;
+}

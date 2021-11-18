@@ -1,0 +1,24 @@
+.contact{
+    padding-top: 100px;
+}
+
+.contact_title{
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 50px;
+}
+.footer-header {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    color: red;
+}
+.footer-description {
+    margin: 30px 0;
+    align-items: left;
+}
+.subscribe-form > input {
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+}

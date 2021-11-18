@@ -1,0 +1,11 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css');
+
+.adminDashboardSidebar {
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 768px) {
+  .adminDashboardSidebar {
+    min-height: 100%;
+  }
+}
