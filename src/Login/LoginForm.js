@@ -1,12 +1,14 @@
 import React from "react";
 import "./LoginForm.css";
 import { Container } from "react-bootstrap";
-import { Link, Navigate} from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import Input from "../shared/Input/Input";
 
 import useAuth from "../Hooks/useAuth";
 
 const LoginForm = () => {
+  const location = useLocation();
+  const history = useNavigate();
   const {
     signInusingEmailPassword,
     setEmail,
@@ -24,7 +26,9 @@ const LoginForm = () => {
   const handledefault = (e) => {
     e.preventDefault();
   };
-  
+  const handlelogin = (e) => {
+    signInusingEmailPassword();
+  }
 
   return (
     <>
@@ -58,7 +62,7 @@ const LoginForm = () => {
                 {user.email && <Navigate to="/"></Navigate>}
                 <button
                   className="btn btn-primary fs-5 w-100 bold "
-                  onClick={signInusingEmailPassword}
+                  onClick={handlelogin}
                 >
                   Login
                 </button>

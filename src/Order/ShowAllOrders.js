@@ -15,7 +15,7 @@ const ShowAllOrders = () => {
         setIsSpinnerActive(false);
       });
   };
-  useEffect(() => getAllOrders(), []);
+  useEffect(() => getAllOrders());
   const deleteOrder = async (id) => {
     const per = window.confirm("Do you really want to delete?");
     per &&

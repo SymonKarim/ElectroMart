@@ -10,7 +10,7 @@ const Users = () => {
          setAllUser(data);
        });
   };
-  useEffect(() => loadUser(), []);
+  useEffect(() => loadUser());
 
   return (
     <div style={{ margin: "50px" }}>

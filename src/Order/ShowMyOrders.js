@@ -6,7 +6,7 @@ import MySpinner from "../shared/MySpinner/MySpinner";
 import Footer from "../shared/Footer/Footer";
 import MyOrder from "./MyOrder";
 import useAuth from "../Hooks/useAuth";
-
+  // await fetch(`https://obscure-harbor-46101.herokuapp.com/all_orders`);
 const ShowMyOrders = () => {
   const { user } = useAuth();
 
@@ -21,7 +21,7 @@ const ShowMyOrders = () => {
         setIsSpinnerActive(false);
       });
   };
-  useEffect(() => getAllOrders(), []);
+  useEffect(() => getAllOrders());
   const deleteOrder = async (id) => {
     const per = window.confirm("Do you really want to delete?");
     per &&
