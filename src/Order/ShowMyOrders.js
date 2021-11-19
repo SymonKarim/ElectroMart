@@ -42,66 +42,70 @@ const ShowMyOrders = () => {
           {isSpinnerActive ? (
             <MySpinner />
           ) : (
-            <Table responsive striped bordered hover>
-              <thead>
-                <tr>
-                  <th className="text-center p-2">Name</th>
-                  <th className="text-center p-2">pnumber</th>
-                  <th className="text-center p-2">Image</th>
-                  <th className="text-center p-2">Title</th>
-                  <th className="text-center p-2">Address</th>
-                  <th className="text-center p-2">Price($)</th>
-                  <th className="text-center p-2">Quantity</th>
-                  <th className="text-center p-2">Delivery Charge</th>
-                  <th className="text-center p-2">Total($)</th>
-                  <th className="text-center p-2">Status</th>
-                  <th className="text-center p-2">Cancel</th>
-                </tr>
-              </thead>
-              <tbody>
-                {allOrders.map((order) => (
-                  <tr key={order._id}>
-                    <td className="text-center p-2">{order.displayName}</td>
-                    <td className="text-center p-2">{order.pnumber}</td>
-                    <td className="text-center p-2">
-                      <img
-                        src={order.image}
-                        alt={order.title}
-                        className="orderItem__Image"
-                      />
-                    </td>
-                    <td className="text-center p-2">
-                      <span>{order.title}</span>
-                    </td>
-                    <td className="text-center p-2">{order.Address}</td>
-                    <td className="text-center p-2">{order.price}</td>
-                    <td className="text-center p-2">{order.quantity}</td>
-
-                    <td className="text-center p-2">{deliveryCharge}</td>
-                    <td className="text-center p-2">
-                      {parseInt(order.price * order.quantity) + deliveryCharge}
-                    </td>
-                    <td className="text-center p-2">
-                      <span
-                        className={`fw-bold text-${
-                          order.status === "Pending..." ? "danger" : "success"
-                        }`}
-                      >
-                        {order.status}
-                      </span>
-                    </td>
-
-                    <td className="text-center p-2">
-                      <Button
-                        btnClass="btn-danger"
-                        name="Cancel"
-                        onClick={() => deleteOrder(order._id)}
-                      />
-                    </td>
+            <>
+              <small className="text-danger fw-bold">
+                Warning! You can order a Laptop once
+              </small>
+              <Table responsive striped bordered hover>
+                <thead>
+                  <tr>
+                    <th className="text-center p-2">Name</th>
+                    <th className="text-center p-2">pnumber</th>
+                    <th className="text-center p-2">Image</th>
+                    <th className="text-center p-2">Title</th>
+                    <th className="text-center p-2">Address</th>
+                    <th className="text-center p-2">Price($)</th>
+                    <th className="text-center p-2">Quantity</th>
+                    <th className="text-center p-2">Delivery Charge</th>
+                    <th className="text-center p-2">Total($)</th>
+                    <th className="text-center p-2">Status</th>
+                    <th className="text-center p-2">Cancel</th>
                   </tr>
-                ))}
-              </tbody>
-            </Table>
+                </thead>
+                <tbody>
+                  {allOrders.map((order) => (
+                    <tr key={order._id}>
+                      <td className="text-center p-2">{order.displayName}</td>
+                      <td className="text-center p-2">{order.pnumber}</td>
+                      <td className="text-center p-2">
+                        <img
+                          src={order.image}
+                          alt={order.title}
+                          className="orderItem__Image"
+                        />
+                      </td>
+                      <td className="text-center p-2">
+                        <span>{order.title}</span>
+                      </td>
+                      <td className="text-center p-2">{order.Address}</td>
+                      <td className="text-center p-2">{order.price}</td>
+                      <td className="text-center p-2">{order.quantity}</td>
+                      <td className="text-center p-2">{deliveryCharge}</td>
+                      <td className="text-center p-2">
+                        {parseInt(order.price * order.quantity) +
+                          deliveryCharge}
+                      </td>
+                      <td className="text-center p-2">
+                        <span
+                          className={`fw-bold text-${
+                            order.status === "Pending..." ? "danger" : "success"
+                          }`}
+                        >
+                          {order.status}
+                        </span>
+                      </td>
+                      <td className="text-center p-2">
+                        <Button
+                          btnClass="btn-danger"
+                          name="Cancel"
+                          onClick={() => deleteOrder(order._id)}
+                        />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </>
           )}
         </Container>
         <Container className="mt-5">
