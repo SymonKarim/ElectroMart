@@ -27,7 +27,7 @@ const LoginForm = () => {
     e.preventDefault();
   };
   const handlelogin = (e) => {
-    signInusingEmailPassword();
+    signInusingEmailPassword(location, history);
   }
 
   return (

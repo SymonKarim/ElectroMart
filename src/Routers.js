@@ -16,6 +16,7 @@ import Reviewpage from "./pages/Reviewpage";
 import Payment from "./pages/Payment";
 import Users from "./pages/Users";
 import PrivateRoute from "./Hooks/PrivateRoute";
+import AdminRoute from "./Hooks/AdminRoute";
 
 const Routers = () => {
   return (
@@ -66,9 +67,9 @@ const Routers = () => {
       <Route
         path="/admin"
         element={
-          <PrivateRoute>
+          <AdminRoute>
             <AdminDashboard />
-          </PrivateRoute>
+          </AdminRoute>
         }
       />
       <Route path="/login" element={<Login />} />
@@ -89,7 +90,7 @@ const Routers = () => {
           </PrivateRoute>
         }
       />
-    
+
       <Route
         path="/users"
         element={

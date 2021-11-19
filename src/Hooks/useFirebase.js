@@ -10,7 +10,7 @@ import {
 import { useEffect, useState } from "react";
 import initializeFirebaseAuthentication from "../Firebase/firebase.init";
 import axios from "axios";
-import { Navigate } from "react-router";
+import { Navigate,useLocation, useNavigate } from "react-router-dom";
 initializeFirebaseAuthentication();
 const useFirebase = () => {
   const [user, setUser] = useState({});
@@ -19,6 +19,7 @@ const useFirebase = () => {
   const [email, setEmail] = useState("");
   const [admin, setAdmin] = useState(false);
   const [isLoading, setIsLoading]  = useState(true);
+  const [isAdminLoading, setIsAdminLoading]  = useState(true);
   const [password, setPassword] = useState("");
   const auth = getAuth();
   useEffect(() => {
@@ -57,26 +58,35 @@ const useFirebase = () => {
   const verifyEmail = () => {
     sendEmailVerification(auth.currentUser).then((result) => {});
   };
-  const signInusingEmailPassword = () => {
+  const signInusingEmailPassword = (location,navigate) => {
+    // const location = useLocation();
+    // const history  = useNavigate();
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         setUser(result.user);
         setError("");
         isAdminUser(result.user.email);
+        const dest = location?.state?.from || "/";
+        navigate(dest);
       })
       .catch((error) => {
         if ("Firebase: Error (auth/wrong-password)." === error.message)
           setError("Email/Password is incorrect!");
-        
+ 
       });
   
   };
   const isAdminUser = (email) => {
+    setIsAdminLoading(true);
     fetch(`https://obscure-harbor-46101.herokuapp.com/getuser/${email}`)
       .then((response) => response.json())
       .then((data) => {
         data ? setAdmin(data.isAdmin) : setAdmin(false);
-      });
+        
+      })
+      .finally(() => {
+      setIsAdminLoading(false);
+    })
   };
   const userMongoDb1 = () => {
     axios
@@ -117,6 +127,7 @@ const useFirebase = () => {
     name,
     admin,
     isLoading,
+    isAdminLoading,
   };
 };
 

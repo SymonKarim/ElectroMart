@@ -18,7 +18,7 @@ const MakeAdmin = () => {
     fetch(`https://obscure-harbor-46101.herokuapp.com/getuser/${email}`)
       .then((response) => response.json())
       .then((data) => {
-        data ? setSingleUser(data) : setAdminEror("Check email please");
+        data ? setSingleUser(data) : setAdminEror("Email not found!");
         data ? setBoolUser(true) : setBoolUser(false);
         !data && setSingleUser({});
       });
