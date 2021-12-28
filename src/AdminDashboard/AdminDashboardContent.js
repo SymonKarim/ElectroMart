@@ -14,6 +14,8 @@ const AdminDashboardContent = () => {
   return (
     <div className="adminDashboardContent">
       <Tab.Content>
+        <Tab.Pane eventKey="#">
+        </Tab.Pane>
         <Tab.Pane eventKey="#dashboard">
           <DashBoard />
         </Tab.Pane>
